@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation'
-import { supabase } from '@/lib/supabase'
+import { getSupabase } from '@/lib/supabase'
 import ShelfClient from './ShelfClient'
 import type { Shelf, Item } from '@/types'
 
@@ -12,7 +12,7 @@ export default async function ShelfPage({ params, searchParams }: Props) {
   const { slug } = await params
   const { edit: editParam } = await searchParams
 
-  const { data: shelf } = await supabase
+  const { data: shelf } = await getSupabase()
     .from('shelves')
     .select('*')
     .eq('slug', slug)
@@ -20,7 +20,7 @@ export default async function ShelfPage({ params, searchParams }: Props) {
 
   if (!shelf) notFound()
 
-  const { data: items } = await supabase
+  const { data: items } = await getSupabase()
     .from('items')
     .select('*')
     .eq('shelf_id', shelf.id)

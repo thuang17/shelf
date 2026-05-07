@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import { nanoid } from 'nanoid'
-import { supabase } from '@/lib/supabase'
+import { getSupabase } from '@/lib/supabase'
 
 function slugify(name: string): string {
   return name
@@ -25,7 +25,7 @@ export async function POST(req: Request) {
   let slug = baseSlug
   let attempt = 0
   while (true) {
-    const { data } = await supabase.from('shelves').select('id').eq('slug', slug).single()
+    const { data } = await getSupabase().from('shelves').select('id').eq('slug', slug).single()
     if (!data) break
     attempt++
     slug = `${baseSlug}-${attempt}`
@@ -33,7 +33,7 @@ export async function POST(req: Request) {
 
   const editToken = nanoid(24)
 
-  const { data: shelf, error } = await supabase
+  const { data: shelf, error } = await getSupabase()
     .from('shelves')
     .insert({ slug, owner_name: name.trim(), edit_token: editToken })
     .select()

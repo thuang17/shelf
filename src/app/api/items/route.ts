@@ -1,18 +1,18 @@
 import { NextResponse } from 'next/server'
-import { supabase } from '@/lib/supabase'
+import { getSupabase } from '@/lib/supabase'
 import type { ItemType, ItemStatus } from '@/types'
 
 export async function POST(req: Request) {
   const { slug, editToken, item } = await req.json()
 
-  const { data: shelf } = await supabase
+  const { data: shelf } = await getSupabase()
     .from('shelves').select('id, edit_token').eq('slug', slug).single()
 
   if (!shelf || shelf.edit_token !== editToken) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 
-  const { data, error } = await supabase
+  const { data, error } = await getSupabase()
     .from('items')
     .insert({
       shelf_id: shelf.id,

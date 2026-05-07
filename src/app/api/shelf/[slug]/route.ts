@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { supabase } from '@/lib/supabase'
+import { getSupabase } from '@/lib/supabase'
 
 export async function GET(
   _req: Request,
@@ -7,12 +7,12 @@ export async function GET(
 ) {
   const { slug } = await params
 
-  const { data: shelf } = await supabase
+  const { data: shelf } = await getSupabase()
     .from('shelves').select('id').eq('slug', slug).single()
 
   if (!shelf) return NextResponse.json({ error: 'Not found' }, { status: 404 })
 
-  const { data: items } = await supabase
+  const { data: items } = await getSupabase()
     .from('items')
     .select('*')
     .eq('shelf_id', shelf.id)
