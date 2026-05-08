@@ -32,42 +32,52 @@ export default function HomePage() {
   }
 
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen px-6">
-      <div className="w-full max-w-xs">
+    <main className="flex items-center justify-center min-h-screen px-4">
+      <div className="w-full max-w-xs text-center">
         <h1
-          className="text-2xl font-semibold mb-2"
-          style={{ color: 'var(--text-primary)', letterSpacing: '-0.04em' }}
+          className="mb-8"
+          style={{
+            fontSize: '36px',
+            fontWeight: 200,
+            color: 'var(--text-primary)',
+            letterSpacing: '-0.8px',
+          }}
         >
           shelf
         </h1>
-        <p className="text-sm mb-10" style={{ color: 'var(--text-secondary)' }}>
-          Your books, movies, and series — beautifully displayed.
-        </p>
 
-        <form onSubmit={handleCreate} className="flex flex-col gap-3">
+        <form
+          onSubmit={handleCreate}
+          className="glass rounded-xl p-6"
+          style={{ borderRadius: '14px' }}
+        >
           <input
             type="text"
             placeholder="Your name"
             value={name}
             onChange={(e) => setName(e.target.value)}
             maxLength={40}
-            className="w-full px-4 py-3 rounded-lg text-sm outline-none"
+            className="w-full text-center text-sm outline-none pb-2 mb-4"
             style={{
-              background: 'var(--surface)',
-              border: '1px solid var(--border)',
+              background: 'transparent',
+              border: 'none',
+              borderBottom: '1px solid rgba(255,255,255,0.08)',
               color: 'var(--text-primary)',
             }}
           />
           {error && (
-            <p className="text-xs" style={{ color: '#e05555' }}>{error}</p>
+            <p className="text-xs mb-3" style={{ color: '#e05555' }}>{error}</p>
           )}
           <button
             type="submit"
             disabled={!name.trim() || loading}
-            className="w-full py-3 rounded-lg text-sm font-medium transition-opacity disabled:opacity-40"
-            style={{ background: 'var(--text-primary)', color: 'var(--bg)' }}
+            className="w-full py-2.5 rounded-lg text-sm font-medium transition-opacity disabled:opacity-40"
+            style={{
+              background: 'rgba(255,255,255,0.08)',
+              color: 'var(--text-primary)',
+            }}
           >
-            {loading ? 'Creating…' : 'Create your shelf →'}
+            {loading ? 'Creating...' : 'Create'}
           </button>
         </form>
       </div>
