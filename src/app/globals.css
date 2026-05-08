@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --bg: #141414;
-  --surface: #1e1e1e;
-  --border: #2a2a2a;
-  --text-primary: #e5e5e5;
-  --text-secondary: #666;
-  --text-muted: #333;
+  --bg: #0a0a0b;
+  --surface: #141414;
+  --border: rgba(255, 255, 255, 0.06);
+  --text-primary: rgba(255, 255, 255, 0.8);
+  --text-secondary: rgba(255, 255, 255, 0.3);
+  --text-muted: rgba(255, 255, 255, 0.15);
   --accent-blue: #4fa3e0;
   --accent-green: #4a9e6b;
 }
@@ -22,22 +22,32 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-.media-card-cover {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.media-card-cover:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+/* Glass surface — for nav bar and modals */
+.glass {
+  backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.media-card-overlay {
-  opacity: 0;
-  transition: opacity 0.2s ease;
+/* Card hover lift */
+.media-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.media-card-cover:hover .media-card-overlay {
+.media-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+}
+
+/* Edit overlay — only visible on hover in edit mode */
+.media-card-edit-overlay {
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+.media-card:hover .media-card-edit-overlay {
   opacity: 1;
 }
 
+/* Scrollbar */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.08); border-radius: 3px; }
