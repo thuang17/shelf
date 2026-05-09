@@ -75,12 +75,16 @@ export default function AddItemModal({ slug, editToken, onClose, onAdded }: AddI
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center px-4"
-      style={{ background: 'rgba(0,0,0,0.8)' }}
+      style={{ background: 'rgba(0,0,0,0.7)' }}
       onClick={(e) => { if (e.target === e.currentTarget) onClose() }}
     >
       <div
         className="w-full max-w-md rounded-xl overflow-hidden"
-        style={{ background: '#1e1e1e', border: '1px solid var(--border)' }}
+        style={{
+          background: '#141414',
+          border: '1px solid var(--border)',
+          boxShadow: '0 24px 64px rgba(0,0,0,0.6)',
+        }}
       >
         {/* Mode tabs */}
         <div className="flex border-b" style={{ borderColor: 'var(--border)' }}>
@@ -88,7 +92,7 @@ export default function AddItemModal({ slug, editToken, onClose, onAdded }: AddI
             <button
               key={m}
               onClick={() => setMode(m)}
-              className="flex-1 py-3 text-xs font-medium"
+              className="flex-1 py-3 text-xs font-medium transition-colors"
               style={{
                 color: mode === m ? 'var(--text-primary)' : 'var(--text-secondary)',
                 borderBottom: mode === m ? '1px solid var(--text-primary)' : '1px solid transparent',
@@ -105,7 +109,7 @@ export default function AddItemModal({ slug, editToken, onClose, onAdded }: AddI
           <input
             ref={inputRef}
             type="text"
-            placeholder={mode === 'books' ? 'Search books…' : 'Search movies & series…'}
+            placeholder={mode === 'books' ? 'Search books...' : 'Search movies & series...'}
             value={query}
             onChange={(e) => handleSearch(e.target.value)}
             className="w-full px-3 py-2 rounded-lg text-sm outline-none"
@@ -127,7 +131,7 @@ export default function AddItemModal({ slug, editToken, onClose, onAdded }: AddI
                 className="w-full flex items-center gap-3 py-2 px-2 rounded-lg text-left"
                 style={{
                   background: selected?.external_id === r.external_id
-                    ? 'var(--surface)'
+                    ? 'rgba(255,255,255,0.04)'
                     : 'transparent',
                 }}
               >
@@ -148,7 +152,7 @@ export default function AddItemModal({ slug, editToken, onClose, onAdded }: AddI
                   <p className="text-xs font-medium truncate" style={{ color: 'var(--text-primary)' }}>
                     {r.title}
                   </p>
-                  <p className="text-xs truncate" style={{ color: 'var(--text-secondary)' }}>
+                  <p className="text-[10px] truncate" style={{ color: 'var(--text-secondary)' }}>
                     {[r.creator, r.year].filter(Boolean).join(' · ')}
                   </p>
                 </div>
@@ -181,10 +185,13 @@ export default function AddItemModal({ slug, editToken, onClose, onAdded }: AddI
               <button
                 onClick={handleAdd}
                 disabled={adding}
-                className="px-4 py-2 rounded-lg text-xs font-medium disabled:opacity-50"
-                style={{ background: 'var(--text-primary)', color: 'var(--bg)' }}
+                className="px-5 py-2 rounded-lg text-xs font-medium disabled:opacity-50"
+                style={{
+                  background: 'rgba(255,255,255,0.08)',
+                  color: 'var(--text-primary)',
+                }}
               >
-                {adding ? 'Adding…' : 'Add'}
+                {adding ? 'Adding...' : 'Add'}
               </button>
             </div>
           </div>
