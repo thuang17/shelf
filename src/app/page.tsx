@@ -32,49 +32,66 @@ export default function HomePage() {
   }
 
   return (
-    <main className="flex items-center justify-center min-h-screen px-4">
-      <div className="w-full max-w-xs text-center">
-        <h1
-          className="mb-6"
-          style={{
-            fontFamily: 'var(--font-display)',
-            fontSize: '44px',
-            fontWeight: 700,
-            color: '#f8fafc',
-            letterSpacing: '-0.5px',
-            lineHeight: 1.1,
-          }}
-        >
+    <div style={{
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      minHeight: '100vh',
+      padding: '0 16px',
+    }}>
+      <div style={{
+        width: '100%',
+        maxWidth: '320px',
+        textAlign: 'center',
+      }}>
+        <h1 style={{
+          fontFamily: 'var(--font-display)',
+          fontSize: '44px',
+          fontWeight: 700,
+          color: '#f8fafc',
+          letterSpacing: '-0.5px',
+          lineHeight: 1.1,
+          margin: '0 0 24px',
+        }}>
           shelf
         </h1>
-        <p
-          className="mb-8 text-xs uppercase"
-          style={{
-            color: 'rgba(255,255,255,0.25)',
-            fontFamily: 'var(--font-body)',
-            letterSpacing: '2px',
-          }}
-        >
+        <p style={{
+          color: 'rgba(255,255,255,0.25)',
+          fontFamily: 'var(--font-body)',
+          fontSize: '11px',
+          letterSpacing: '2px',
+          textTransform: 'uppercase',
+          margin: '0 0 32px',
+        }}>
           Your Personal Collection
         </p>
 
-        <div
-          className="rounded-2xl p-6 mb-6"
-          style={{
-            background: 'rgba(255,255,255,0.02)',
-            border: '1px solid rgba(255,255,255,0.08)',
-            backdropFilter: 'blur(20px)',
-          }}
-        >
-          <form onSubmit={handleCreate}>
+        <div style={{
+          borderRadius: '16px',
+          padding: '24px',
+          marginBottom: '24px',
+          background: 'rgba(255,255,255,0.02)',
+          border: '1px solid rgba(255,255,255,0.08)',
+          backdropFilter: 'blur(20px)',
+          width: '100%',
+          maxWidth: '320px',
+        }}>
+          <form onSubmit={handleCreate} style={{ width: '100%' }}>
             <input
               type="text"
               placeholder="Your name"
               value={name}
               onChange={(e) => setName(e.target.value)}
               maxLength={40}
-              className="w-full text-center text-sm outline-none py-2.5 mb-1 rounded-lg"
               style={{
+                display: 'block',
+                width: '100%',
+                textAlign: 'center',
+                fontSize: '14px',
+                outline: 'none',
+                padding: '10px 0',
+                marginBottom: '4px',
+                borderRadius: '8px',
                 background: 'var(--bg)',
                 border: '1px solid rgba(255,255,255,0.08)',
                 color: 'var(--text-primary)',
@@ -82,16 +99,26 @@ export default function HomePage() {
               }}
             />
             {error && (
-              <p className="text-xs mt-2" style={{ color: '#f87171' }}>{error}</p>
+              <p style={{ color: '#f87171', fontSize: '12px', margin: '8px 0 0' }}>{error}</p>
             )}
             <button
               type="submit"
               disabled={!name.trim() || loading}
-              className="w-full py-2.5 rounded-lg text-sm font-semibold mt-4 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed"
               style={{
+                display: 'block',
+                width: '100%',
+                padding: '10px 0',
+                borderRadius: '8px',
+                fontSize: '14px',
+                fontWeight: 600,
+                marginTop: '16px',
+                transition: 'all 0.2s',
+                opacity: (!name.trim() || loading) ? 0.4 : 1,
+                cursor: (!name.trim() || loading) ? 'not-allowed' : 'pointer',
                 background: '#f8fafc',
                 color: '#080808',
                 fontFamily: 'var(--font-body)',
+                border: 'none',
               }}
             >
               {loading ? 'Creating...' : 'Create Shelf'}
@@ -99,13 +126,14 @@ export default function HomePage() {
           </form>
         </div>
 
-        <p
-          className="text-xs"
-          style={{ color: 'rgba(255,255,255,0.12)', fontFamily: 'var(--font-body)' }}
-        >
+        <p style={{
+          color: 'rgba(255,255,255,0.12)',
+          fontFamily: 'var(--font-body)',
+          fontSize: '12px',
+        }}>
           No account needed
         </p>
       </div>
-    </main>
+    </div>
   )
 }
