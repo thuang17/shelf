@@ -60,34 +60,36 @@ export default function ShelfClient({ shelf, initialItems, isEditing, editToken 
 
   return (
     <>
-      {/* Nav */}
-      <nav className="flex items-center justify-between px-12 py-5">
+      {/* Nav bar — glass */}
+      <nav
+        className="glass flex items-center justify-between px-8 py-3.5"
+        style={{ borderTop: 'none', borderLeft: 'none', borderRight: 'none' }}
+      >
         <div
-          className="text-sm font-semibold"
-          style={{ letterSpacing: '-0.03em', color: 'var(--text-primary)' }}
+          className="text-sm font-medium"
+          style={{ letterSpacing: '-0.3px', color: 'var(--text-primary)' }}
         >
-          shelf{' '}
-          <span style={{ color: 'var(--text-muted)', fontWeight: 400 }}>
-            / {shelf.owner_name}
-          </span>
+          shelf
+          <span style={{ color: 'var(--text-muted)', fontWeight: 300 }}> / {shelf.owner_name}</span>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
           {!isEditing && (
             <button
-              onClick={() => {
-                navigator.clipboard.writeText(window.location.href)
-              }}
-              className="text-xs"
+              onClick={() => navigator.clipboard.writeText(window.location.href)}
+              className="text-[11px]"
               style={{ color: 'var(--text-secondary)' }}
             >
-              Share ↗
+              Share
             </button>
           )}
           {isEditing && (
             <button
               onClick={() => setShowModal(true)}
-              className="px-3 py-1.5 rounded-lg text-xs font-medium"
-              style={{ background: 'var(--text-primary)', color: 'var(--bg)' }}
+              className="px-3 py-1.5 rounded-md text-[11px] font-medium"
+              style={{
+                background: 'rgba(255,255,255,0.08)',
+                color: 'var(--text-primary)',
+              }}
             >
               + Add
             </button>
@@ -95,13 +97,12 @@ export default function ShelfClient({ shelf, initialItems, isEditing, editToken 
         </div>
       </nav>
 
-      <FilterBar active={filter} onChange={setFilter} />
+      <div className="pt-6">
+        <FilterBar active={filter} onChange={setFilter} />
+      </div>
 
       {items.length === 0 ? (
-        <div
-          className="flex items-center justify-center"
-          style={{ minHeight: '50vh' }}
-        >
+        <div className="flex items-center justify-center" style={{ minHeight: '50vh' }}>
           <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
             {isEditing ? 'Click + Add to start building your shelf.' : 'Nothing here yet.'}
           </p>
