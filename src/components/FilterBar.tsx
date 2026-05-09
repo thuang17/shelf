@@ -21,31 +21,33 @@ interface FilterBarProps {
 }
 
 export default function FilterBar({ active, onChange }: FilterBarProps) {
-  const btnStyle = (v: FilterValue) => ({
-    background: active === v ? 'var(--surface)' : 'transparent',
-    color: active === v ? 'var(--text-primary)' : 'var(--text-secondary)',
-    letterSpacing: '-0.01em',
-  })
-
   return (
-    <div className="flex items-center gap-0.5 px-12 pb-6">
+    <div className="flex items-center gap-1.5 px-8 pb-8">
       {TYPE_FILTERS.map((f) => (
         <button
           key={f.value}
           onClick={() => onChange(f.value)}
-          className="px-3 py-1.5 rounded-md text-xs transition-colors"
-          style={btnStyle(f.value)}
+          className="px-3.5 py-1.5 text-xs rounded-full transition-colors"
+          style={{
+            background: active === f.value ? 'rgba(255,255,255,0.05)' : 'transparent',
+            color: active === f.value ? 'var(--text-primary)' : 'var(--text-secondary)',
+            border: active === f.value ? '1px solid rgba(255,255,255,0.08)' : '1px solid transparent',
+          }}
         >
           {f.label}
         </button>
       ))}
-      <span className="inline-block w-px h-3.5 mx-2" style={{ background: 'var(--border)' }} />
+      <span className="inline-block w-px h-3.5 mx-1.5" style={{ background: 'var(--border)' }} />
       {STATUS_FILTERS.map((f) => (
         <button
           key={f.value}
           onClick={() => onChange(f.value)}
-          className="px-3 py-1.5 rounded-md text-xs transition-colors"
-          style={btnStyle(f.value)}
+          className="px-3.5 py-1.5 text-xs rounded-full transition-colors"
+          style={{
+            background: active === f.value ? 'rgba(255,255,255,0.05)' : 'transparent',
+            color: active === f.value ? 'var(--text-primary)' : 'var(--text-secondary)',
+            border: active === f.value ? '1px solid rgba(255,255,255,0.08)' : '1px solid transparent',
+          }}
         >
           {f.label}
         </button>
