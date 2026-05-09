@@ -16,20 +16,23 @@ export default function ShelfRow({ title, items, isEditing, onDelete, onStatusCh
 
   return (
     <div className="mb-12">
-      <div className="flex items-baseline gap-2 px-12 mb-4">
+      <div className="flex items-baseline gap-2 px-8 mb-3">
         <h2
-          className="text-sm font-semibold"
-          style={{ color: 'var(--text-primary)', letterSpacing: '-0.02em' }}
+          className="text-xs font-medium"
+          style={{ color: 'var(--text-primary)', letterSpacing: '-0.01em' }}
         >
           {title}
         </h2>
-        <span className="text-xs" style={{ color: 'var(--text-muted)' }}>
+        <span className="text-[11px]" style={{ color: 'var(--text-muted)' }}>
           {items.length}
         </span>
       </div>
       <div
-        className="grid px-12"
-        style={{ gridTemplateColumns: 'repeat(5, minmax(0, 1fr))', gap: '10px' }}
+        className="grid px-8"
+        style={{
+          gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))',
+          gap: '12px',
+        }}
       >
         {items.map((item) => (
           <MediaCard
