@@ -1,0 +1,54 @@
+<h2>Shelf 设计升级方案</h2>
+<p class="subtitle">核心问题：系统字体 + 纯黑底 = 没有性格。以下是基于 Playfair Display + 墨蓝底的质感方案</p>
+
+<div class="split">
+  <div class="mockup">
+    <div class="mockup-header">当前（改了还是很烂的原因）</div>
+    <div class="mockup-body" style="background:#0a0a0b;font-family:-apple-system,sans-serif;padding:40px 24px;min-height:280px">
+      <div style="font-size:32px;font-weight:200;color:rgba(255,255,255,0.8);margin-bottom:8px;text-align:center">shelf</div>
+      <div style="border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:20px;backdrop-filter:blur(16px);background:rgba(255,255,255,0.02);max-width:240px;margin:0 auto;text-align:center">
+        <div style="border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:6px;margin-bottom:12px;color:rgba(255,255,255,0.6);font-size:13px">Your name</div>
+        <div style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.7);padding:8px;border-radius:8px;font-size:12px">Create</div>
+      </div>
+      <p style="color:#555;font-size:11px;margin-top:16px;text-align:center">系统字体 · 纯黑底 · 玻璃效果不可见 · 无纹理 · 像bug不是设计</p>
+    </div>
+  </div>
+  <div class="mockup">
+    <div class="mockup-header">Proposed（新方案）</div>
+    <div class="mockup-body" style="background:#020617;font-family:'Inter',sans-serif;padding:40px 24px;min-height:280px;position:relative;overflow:hidden">
+      <div style="position:absolute;inset:0;background-image:url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><filter id=%22n%22><feTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/></filter><rect width=%22100%22 height=%22100%22 filter=%22url(#n)%22 opacity=%220.03%22/></svg>');pointer-events:none;z-index:0"></div>
+      <div style="position:relative;text-align:center;z-index:1">
+        <div style="font-family:'Playfair Display',serif;font-size:38px;font-weight:700;color:#F8FAFC;letter-spacing:-0.5px;margin-bottom:6px">shelf</div>
+        <div style="color:rgba(248,250,252,0.3);font-size:12px;margin-bottom:28px;font-family:'Inter',sans-serif;letter-spacing:1px;text-transform:uppercase">Your Personal Collection</div>
+        <div style="background:rgba(30,41,59,0.6);border:1px solid rgba(248,250,252,0.06);border-radius:16px;padding:24px;max-width:240px;margin:0 auto;backdrop-filter:blur(20px);box-shadow:0 8px 32px rgba(0,0,0,0.4)">
+          <div style="background:rgba(15,23,42,0.8);border:1px solid rgba(248,250,252,0.08);border-radius:10px;padding:10px;margin-bottom:12px;color:rgba(248,250,252,0.5);text-align:center;font-size:13px">Your name</div>
+          <div style="background:#F8FAFC;color:#020617;padding:10px;border-radius:10px;font-size:13px;font-weight:600;letter-spacing:-0.2px">Create Shelf</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top:20px">
+  <h3>改了什么？</h3>
+  <table style="width:100%;color:#888;font-size:12px;border-collapse:collapse">
+    <tr style="border-bottom:1px solid #1a1a1a"><td style="padding:8px;color:#ccc;font-weight:600">元素</td><td style="padding:8px;color:#c44;font-weight:600">之前</td><td style="padding:8px;color:#4a9e6b;font-weight:600">之后</td></tr>
+    <tr style="border-bottom:1px solid #1a1a1a"><td style="padding:8px">标题字体</td><td style="padding:8px">系统默认 200 weight</td><td style="padding:8px">Playfair Display 700 bold</td></tr>
+    <tr style="border-bottom:1px solid #1a1a1a"><td style="padding:8px">正文字体</td><td style="padding:8px">系统默认</td><td style="padding:8px">Inter（Google Fonts 最精致无衬线）</td></tr>
+    <tr style="border-bottom:1px solid #1a1a1a"><td style="padding:8px">背景色</td><td style="padding:8px">#0a0a0b（死黑）</td><td style="padding:8px">#020617（墨蓝黑，有色彩倾向）</td></tr>
+    <tr style="border-bottom:1px solid #1a1a1a"><td style="padding:8px">玻璃效果</td><td style="padding:8px">透明度0.02（看不见）</td><td style="padding:8px">透明度0.6 + blur 20px（真正可见）</td></tr>
+    <tr style="border-bottom:1px solid #1a1a1a"><td style="padding:8px">纹理</td><td style="padding:8px">无</td><td style="padding:8px">极细微噪点（SVG noise）</td></tr>
+    <tr style="border-bottom:1px solid #1a1a1a"><td style="padding:8px">按钮</td><td style="padding:8px">灰半透明</td><td style="padding:8px">白底黑字，明确CTA</td></tr>
+  </table>
+</div>
+
+<div class="options" style="margin-top:20px">
+  <div class="option" data-choice="go" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content"><h3>就这个方向</h3><p>Playfair + Inter + 墨蓝底 + 噪点纹理</p></div>
+  </div>
+  <div class="option" data-choice="tweak" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content"><h3>需要调整</h3><p>告诉我哪里不对</p></div>
+  </div>
+</div>

@@ -62,22 +62,23 @@ export default function ShelfClient({ shelf, initialItems, isEditing, editToken 
     <>
       {/* Nav bar — glass */}
       <nav
-        className="glass flex items-center justify-between px-8 py-3.5"
-        style={{ borderTop: 'none', borderLeft: 'none', borderRight: 'none' }}
+        className="flex items-center justify-between px-8 py-3.5"
+        style={{
+          background: 'rgba(17,17,17,0.7)',
+          backdropFilter: 'blur(20px) saturate(120%)',
+          borderBottom: '1px solid rgba(255,255,255,0.08)',
+        }}
       >
-        <div
-          className="text-sm font-medium"
-          style={{ letterSpacing: '-0.3px', color: 'var(--text-primary)' }}
-        >
+        <div style={{ fontFamily: 'var(--font-display)', fontSize: '18px', fontWeight: 700, color: '#f8fafc', letterSpacing: '-0.3px' }}>
           shelf
-          <span style={{ color: 'var(--text-muted)', fontWeight: 300 }}> / {shelf.owner_name}</span>
+          <span style={{ fontFamily: 'var(--font-body)', color: 'var(--text-muted)', fontWeight: 400, fontSize: '13px', marginLeft: '6px' }}>/ {shelf.owner_name}</span>
         </div>
         <div className="flex items-center gap-3">
           {!isEditing && (
             <button
               onClick={() => navigator.clipboard.writeText(window.location.href)}
-              className="text-[11px]"
-              style={{ color: 'var(--text-secondary)' }}
+              className="text-[11px] font-medium transition-colors duration-200"
+              style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-body)' }}
             >
               Share
             </button>
@@ -85,10 +86,11 @@ export default function ShelfClient({ shelf, initialItems, isEditing, editToken 
           {isEditing && (
             <button
               onClick={() => setShowModal(true)}
-              className="px-3 py-1.5 rounded-md text-[11px] font-medium"
+              className="px-4 py-1.5 rounded-lg text-[12px] font-semibold transition-all duration-200"
               style={{
-                background: 'rgba(255,255,255,0.08)',
-                color: 'var(--text-primary)',
+                background: '#f8fafc',
+                color: '#080808',
+                fontFamily: 'var(--font-body)',
               }}
             >
               + Add

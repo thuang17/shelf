@@ -1,0 +1,99 @@
+<h2>Shelf 页面 — 四种布局方案</h2>
+<p class="subtitle">同样的暗色底 + 毛玻璃风格，不同排列方式</p>
+
+<div class="cards">
+  <!-- A: Gallery Grid 5-col -->
+  <div class="card" data-choice="grid5" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background:#0a0a0b;padding:16px 14px;font-family:sans-serif">
+        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px">
+          <div style="aspect-ratio:2/3;background:linear-gradient(135deg,#1a3a5c,#0f3460);border-radius:6px;border:1px solid rgba(255,255,255,0.08)"></div>
+          <div style="aspect-ratio:2/3;background:linear-gradient(135deg,#3a1a3c,#1a1a2e);border-radius:6px;border:1px solid rgba(255,255,255,0.08)"></div>
+          <div style="aspect-ratio:2/3;background:linear-gradient(135deg,#1a3c2a,#0f3460);border-radius:6px;border:1px solid rgba(255,255,255,0.08)"></div>
+          <div style="aspect-ratio:2/3;background:linear-gradient(135deg,#3c2a1a,#16213e);border-radius:6px;border:1px solid rgba(255,255,255,0.08)"></div>
+          <div style="aspect-ratio:2/3;background:linear-gradient(135deg,#2a1a3c,#1a1a2e);border-radius:6px;border:1px solid rgba(255,255,255,0.08)"></div>
+          <div style="aspect-ratio:2/3;background:linear-gradient(135deg,#1a2a3c,#0f3460);border-radius:6px;border:1px solid rgba(255,255,255,0.06)"></div>
+          <div style="aspect-ratio:2/3;background:linear-gradient(135deg,#3c1a2a,#16213e);border-radius:6px;border:1px solid rgba(255,255,255,0.06)"></div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body"><h3>A. 5列画廊</h3><p>整齐网格 · 封面为主 · 信息在下方 · 简单直观</p></div>
+  </div>
+
+  <!-- B: Horizontal Rows -->
+  <div class="card" data-choice="carousel" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background:#0a0a0b;padding:14px 14px;font-family:sans-serif">
+        <div style="font-size:10px;color:rgba(255,255,255,0.6);font-weight:600;margin-bottom:8px">书籍 <span style="color:rgba(255,255,255,0.2)">4</span> →</div>
+        <div style="display:flex;gap:8px;overflow:hidden;margin-bottom:16px">
+          <div style="min-width:100px;height:148px;background:linear-gradient(135deg,#1a3a5c,#0f3460);border-radius:6px;border:1px solid rgba(255,255,255,0.08);flex-shrink:0"></div>
+          <div style="min-width:100px;height:148px;background:linear-gradient(135deg,#3a1a3c,#1a1a2e);border-radius:6px;border:1px solid rgba(255,255,255,0.08);flex-shrink:0"></div>
+          <div style="min-width:100px;height:148px;background:linear-gradient(135deg,#1a3c2a,#0f3460);border-radius:6px;border:1px solid rgba(255,255,255,0.08);flex-shrink:0"></div>
+          <div style="min-width:100px;height:148px;background:linear-gradient(135deg,#3c2a1a,#16213e);border-radius:6px;border:1px solid rgba(255,255,255,0.08);flex-shrink:0"></div>
+        </div>
+        <div style="font-size:10px;color:rgba(255,255,255,0.6);font-weight:600;margin-bottom:8px">影视 <span style="color:rgba(255,255,255,0.2)">3</span> →</div>
+        <div style="display:flex;gap:8px;overflow:hidden">
+          <div style="min-width:100px;height:148px;background:linear-gradient(135deg,#2a1a3c,#1a1a2e);border-radius:6px;border:1px solid rgba(255,255,255,0.08);flex-shrink:0"></div>
+          <div style="min-width:100px;height:148px;background:linear-gradient(135deg,#1a2a3c,#0f3460);border-radius:6px;border:1px solid rgba(255,255,255,0.08);flex-shrink:0"></div>
+          <div style="min-width:100px;height:148px;background:linear-gradient(135deg,#3c1a2a,#16213e);border-radius:6px;border:1px solid rgba(255,255,255,0.08);flex-shrink:0"></div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body"><h3>B. 横行滑动</h3><p>Netflix 式 · 横向滚行 · 每行一个类别 · 沉浸浏览</p></div>
+  </div>
+
+  <!-- C: Mixed Grid sizes -->
+  <div class="card" data-choice="mixed" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background:#0a0a0b;padding:14px;font-family:sans-serif">
+        <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:6px">
+          <div style="grid-column:span 2;grid-row:span 2;aspect-ratio:2/3;background:linear-gradient(135deg,#1a3a5c,#0f3460);border-radius:6px;border:1px solid rgba(255,255,255,0.08)"></div>
+          <div style="grid-column:span 2;grid-row:span 1;aspect-ratio:3/2;background:linear-gradient(135deg,#3c2a1a,#16213e);border-radius:6px;border:1px solid rgba(255,255,255,0.08)"></div>
+          <div style="grid-column:span 2;grid-row:span 1;aspect-ratio:3/2;background:linear-gradient(135deg,#1a3c2a,#0f3460);border-radius:6px;border:1px solid rgba(255,255,255,0.08)"></div>
+          <div style="grid-column:span 2;grid-row:span 1;aspect-ratio:3/2;background:linear-gradient(135deg,#3a1a3c,#1a1a2e);border-radius:6px;border:1px solid rgba(255,255,255,0.08)"></div>
+          <div style="grid-column:span 2;grid-row:span 2;aspect-ratio:2/3;background:linear-gradient(135deg,#2a1a3c,#1a1a2e);border-radius:6px;border:1px solid rgba(255,255,255,0.08)"></div>
+          <div style="grid-column:span 2;grid-row:span 1;aspect-ratio:3/2;background:linear-gradient(135deg,#1a2a3c,#0f3460);border-radius:6px;border:1px solid rgba(255,255,255,0.06)"></div>
+          <div style="grid-column:span 2;grid-row:span 1;aspect-ratio:3/2;background:linear-gradient(135deg,#3c1a2a,#16213e);border-radius:6px;border:1px solid rgba(255,255,255,0.06)"></div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body"><h3>C. 混合网格</h3><p>不同尺寸封面交替 · 大字小字错落 · 视觉节奏丰富 · 不单调</p></div>
+  </div>
+
+  <!-- D: Gallery List -->
+  <div class="card" data-choice="list" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background:#0a0a0b;padding:14px;font-family:sans-serif">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;gap:14px;align-items:center;padding:10px 12px;background:rgba(255,255,255,0.015);border:1px solid rgba(255,255,255,0.04);border-radius:8px">
+            <div style="width:48px;height:72px;background:linear-gradient(135deg,#1a3a5c,#0f3460);border-radius:4px;flex-shrink:0;border:1px solid rgba(255,255,255,0.08)"></div>
+            <div style="flex:1">
+              <div style="color:rgba(255,255,255,0.8);font-size:11px;font-weight:500">原子习惯</div>
+              <div style="color:rgba(255,255,255,0.3);font-size:9px;margin:2px 0 4px">James Clear · 2018</div>
+              <div style="color:rgba(255,255,255,0.2);font-size:8px;overflow:hidden;max-height:16px">通过微小改变带来巨大变化</div>
+            </div>
+            <span style="color:rgba(255,255,255,0.3);font-size:8px;flex-shrink:0">在读</span>
+          </div>
+          <div style="display:flex;gap:14px;align-items:center;padding:10px 12px;background:rgba(255,255,255,0.015);border:1px solid rgba(255,255,255,0.04);border-radius:8px">
+            <div style="width:48px;height:72px;background:linear-gradient(135deg,#3a1a3c,#1a1a2e);border-radius:4px;flex-shrink:0;border:1px solid rgba(255,255,255,0.08)"></div>
+            <div style="flex:1">
+              <div style="color:rgba(255,255,255,0.8);font-size:11px;font-weight:500">沙丘</div>
+              <div style="color:rgba(255,255,255,0.3);font-size:9px;margin:2px 0 4px">Frank Herbert · 1965</div>
+              <div style="color:rgba(255,255,255,0.2);font-size:8px;overflow:hidden;max-height:16px">经典科幻史诗</div>
+            </div>
+            <span style="color:#4a9e6b;font-size:8px;flex-shrink:0">已读</span>
+          </div>
+          <div style="display:flex;gap:14px;align-items:center;padding:10px 12px;background:rgba(255,255,255,0.01);border:1px solid rgba(255,255,255,0.03);border-radius:8px">
+            <div style="width:48px;height:72px;background:linear-gradient(135deg,#3c2a1a,#16213e);border-radius:4px;flex-shrink:0;border:1px solid rgba(255,255,255,0.06)"></div>
+            <div style="flex:1">
+              <div style="color:rgba(255,255,255,0.7);font-size:11px;font-weight:500">过往人生</div>
+              <div style="color:rgba(255,255,255,0.25);font-size:9px;margin:2px 0">Celine Song · 2023</div>
+            </div>
+            <span style="color:rgba(255,255,255,0.2);font-size:8px;flex-shrink:0">想看</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body"><h3>D. 画廊列表</h3><p>小封面 + 文字信息 · 带简介 · 每行独立卡片 · 信息更丰富</p></div>
+  </div>
+</div>

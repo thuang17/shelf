@@ -35,51 +35,76 @@ export default function HomePage() {
     <main className="flex items-center justify-center min-h-screen px-4">
       <div className="w-full max-w-xs text-center">
         <h1
-          className="mb-8"
+          className="mb-6"
           style={{
-            fontSize: '36px',
-            fontWeight: 200,
-            color: 'var(--text-primary)',
-            letterSpacing: '-0.8px',
+            fontFamily: 'var(--font-display)',
+            fontSize: '44px',
+            fontWeight: 700,
+            color: '#f8fafc',
+            letterSpacing: '-0.5px',
+            lineHeight: 1.1,
           }}
         >
           shelf
         </h1>
-
-        <form
-          onSubmit={handleCreate}
-          className="glass rounded-xl p-6"
-          style={{ borderRadius: '14px' }}
+        <p
+          className="mb-8 text-xs uppercase"
+          style={{
+            color: 'rgba(255,255,255,0.25)',
+            fontFamily: 'var(--font-body)',
+            letterSpacing: '2px',
+          }}
         >
-          <input
-            type="text"
-            placeholder="Your name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            maxLength={40}
-            className="w-full text-center text-sm outline-none pb-2 mb-4"
-            style={{
-              background: 'transparent',
-              border: 'none',
-              borderBottom: '1px solid rgba(255,255,255,0.08)',
-              color: 'var(--text-primary)',
-            }}
-          />
-          {error && (
-            <p className="text-xs mb-3" style={{ color: '#e05555' }}>{error}</p>
-          )}
-          <button
-            type="submit"
-            disabled={!name.trim() || loading}
-            className="w-full py-2.5 rounded-lg text-sm font-medium transition-opacity disabled:opacity-40"
-            style={{
-              background: 'rgba(255,255,255,0.08)',
-              color: 'var(--text-primary)',
-            }}
-          >
-            {loading ? 'Creating...' : 'Create'}
-          </button>
-        </form>
+          Your Personal Collection
+        </p>
+
+        <div
+          className="rounded-2xl p-6 mb-6"
+          style={{
+            background: 'rgba(255,255,255,0.02)',
+            border: '1px solid rgba(255,255,255,0.08)',
+            backdropFilter: 'blur(20px)',
+          }}
+        >
+          <form onSubmit={handleCreate}>
+            <input
+              type="text"
+              placeholder="Your name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              maxLength={40}
+              className="w-full text-center text-sm outline-none py-2.5 mb-1 rounded-lg"
+              style={{
+                background: 'var(--bg)',
+                border: '1px solid rgba(255,255,255,0.08)',
+                color: 'var(--text-primary)',
+                fontFamily: 'var(--font-body)',
+              }}
+            />
+            {error && (
+              <p className="text-xs mt-2" style={{ color: '#f87171' }}>{error}</p>
+            )}
+            <button
+              type="submit"
+              disabled={!name.trim() || loading}
+              className="w-full py-2.5 rounded-lg text-sm font-semibold mt-4 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed"
+              style={{
+                background: '#f8fafc',
+                color: '#080808',
+                fontFamily: 'var(--font-body)',
+              }}
+            >
+              {loading ? 'Creating...' : 'Create Shelf'}
+            </button>
+          </form>
+        </div>
+
+        <p
+          className="text-xs"
+          style={{ color: 'rgba(255,255,255,0.12)', fontFamily: 'var(--font-body)' }}
+        >
+          No account needed
+        </p>
       </div>
     </main>
   )

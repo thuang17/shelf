@@ -1,0 +1,39 @@
+<h2>光晕有 vs 无</h2>
+<p class="subtitle">同样的毛玻璃卡片布局，左边有背景光晕，右边纯黑底</p>
+
+<div class="split">
+  <div class="mockup">
+    <div class="mockup-header">有光晕</div>
+    <div class="mockup-body" style="background:radial-gradient(ellipse at 30% 40%, rgba(80,120,200,0.06) 0%, transparent 60%), radial-gradient(ellipse at 70% 80%, rgba(200,100,150,0.04) 0%, transparent 60%), #0a0a0b;padding:24px;min-height:240px">
+      <div style="font-size:13px;color:rgba(255,255,255,0.85);margin-bottom:16px">shelf / Trevor</div>
+      <div style="display:flex;gap:8px">
+        <div style="flex:1;aspect-ratio:2/3;border-radius:8px;background:rgba(255,255,255,0.04);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.05)"></div>
+        <div style="flex:1;aspect-ratio:2/3;border-radius:8px;background:rgba(255,255,255,0.04);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.05)"></div>
+        <div style="flex:1;aspect-ratio:2/3;border-radius:8px;background:rgba(255,255,255,0.04);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.05)"></div>
+      </div>
+    </div>
+  </div>
+  <div class="mockup">
+    <div class="mockup-header">无光晕</div>
+    <div class="mockup-body" style="background:#0a0a0b;padding:24px;min-height:240px">
+      <div style="font-size:13px;color:rgba(255,255,255,0.85);margin-bottom:16px">shelf / Trevor</div>
+      <div style="display:flex;gap:8px">
+        <div style="flex:1;aspect-ratio:2/3;border-radius:8px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.05)"></div>
+        <div style="flex:1;aspect-ratio:2/3;border-radius:8px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.05)"></div>
+        <div style="flex:1;aspect-ratio:2/3;border-radius:8px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.05)"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<p style="color:#888;font-size:12px;margin-top:12px">区别很微妙。有光晕 = 背景有"呼吸感"，不死黑。无光晕 = 更干净更平。你喜欢哪个？</p>
+
+<div class="options">
+  <div class="option" data-choice="with-glow" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content"><h3>有光晕</h3><p>背景有微妙色彩，不死黑</p></div>
+  </div>
+  <div class="option" data-choice="no-glow" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content"><h3>无光晕</h3><p>纯黑底，更干净</p></div>
+  </div>
+</div>

@@ -1,0 +1,90 @@
+<h2>配色 · 字体 · 间距</h2>
+<p class="subtitle">最终确定的视觉系统</p>
+
+<div class="section">
+  <h3>1. 配色</h3>
+  <div style="display:flex;gap:12px;margin-top:10px;flex-wrap:wrap">
+    <div style="flex:1;min-width:90px">
+      <div style="height:56px;background:#0a0a0b;border-radius:8px;border:1px solid #2a2a2a"></div>
+      <span style="color:#888;font-size:10px">--bg #0a0a0b</span>
+    </div>
+    <div style="flex:1;min-width:90px">
+      <div style="height:56px;background:#141414;border-radius:8px;border:1px solid #2a2a2a"></div>
+      <span style="color:#888;font-size:10px">--surface #141414</span>
+    </div>
+    <div style="flex:1;min-width:90px">
+      <div style="height:56px;background:rgba(255,255,255,0.03);border-radius:8px;border:1px solid rgba(255,255,255,0.06)"></div>
+      <span style="color:#888;font-size:10px">glass-surface</span>
+    </div>
+    <div style="flex:1;min-width:90px">
+      <div style="height:56px;background:rgba(255,255,255,0.06);border-radius:8px;border:1px solid rgba(255,255,255,0.08)"></div>
+      <span style="color:#888;font-size:10px">glass-hover</span>
+    </div>
+  </div>
+  <div style="display:flex;gap:12px;margin-top:8px">
+    <div style="flex:1;min-width:90px">
+      <div style="height:36px;background:rgba(255,255,255,0.8);border-radius:6px"></div>
+      <span style="color:#888;font-size:10px">text-primary</span>
+    </div>
+    <div style="flex:1;min-width:90px">
+      <div style="height:36px;background:rgba(255,255,255,0.3);border-radius:6px"></div>
+      <span style="color:#888;font-size:10px">text-secondary</span>
+    </div>
+    <div style="flex:1;min-width:90px">
+      <div style="height:36px;background:rgba(255,255,255,0.1);border-radius:6px"></div>
+      <span style="color:#888;font-size:10px">text-muted</span>
+    </div>
+    <div style="flex:1;min-width:90px">
+      <div style="height:36px;background:#4fa3e0;border-radius:6px"></div>
+      <span style="color:#888;font-size:10px">accent #4fa3e0</span>
+    </div>
+  </div>
+  <p style="color:#666;font-size:11px;margin-top:10px">现有项目的色板基本可用，微调：背景从 #141414 改为更深的 #0a0a0b，文字用 rgba(255,255,255,x) 替代 hex 更精确控制透明度。</p>
+</div>
+
+<div class="section" style="margin-top:20px">
+  <h3>2. 字体</h3>
+  <div style="margin-top:10px;display:flex;flex-direction:column;gap:8px">
+    <div style="font-size:28px;font-weight:200;color:rgba(255,255,255,0.85);letter-spacing:-0.8px">shelf — 标题 · 200 weight</div>
+    <div style="font-size:14px;font-weight:500;color:rgba(255,255,255,0.8);letter-spacing:-0.3px">shelf / Trevor — 导航 · 500 weight</div>
+    <div style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.85)">封面标题 · 600 weight</div>
+    <div style="font-size:11px;color:rgba(255,255,255,0.3)">文字信息 · 400 weight</div>
+  </div>
+  <p style="color:#666;font-size:11px;margin-top:10px">字体栈保持：<code>-apple-system, BlinkMacSystemFont, 'Inter', 'Helvetica Neue', sans-serif</code>。极细字重（200）仅在首页大标题使用，其余正常。</p>
+</div>
+
+<div class="section" style="margin-top:20px">
+  <h3>3. 间距 & 圆角</h3>
+  <table style="width:100%;color:#888;font-size:11px;margin-top:10px;border-collapse:collapse">
+    <tr style="border-bottom:1px solid #1a1a1a"><td style="padding:6px 8px;color:#ccc">页面水平内边距</td><td style="padding:6px 8px">32px (px-8)</td></tr>
+    <tr style="border-bottom:1px solid #1a1a1a"><td style="padding:6px 8px;color:#ccc">卡片间距</td><td style="padding:6px 8px">10-12px</td></tr>
+    <tr style="border-bottom:1px solid #1a1a1a"><td style="padding:6px 8px;color:#ccc">分组间距</td><td style="padding:6px 8px">36-48px</td></tr>
+    <tr style="border-bottom:1px solid #1a1a1a"><td style="padding:6px 8px;color:#ccc">导航高度</td><td style="padding:6px 8px">~52px</td></tr>
+    <tr style="border-bottom:1px solid #1a1a1a"><td style="padding:6px 8px;color:#ccc">卡片圆角</td><td style="padding:6px 8px">8px</td></tr>
+    <tr style="border-bottom:1px solid #1a1a1a"><td style="padding:6px 8px;color:#ccc">按钮/Modal圆角</td><td style="padding:6px 8px">8-12px</td></tr>
+    <tr style="border-bottom:1px solid #1a1a1a"><td style="padding:6px 8px;color:#ccc">标签胶囊圆角</td><td style="padding:6px 8px">20px (full round)</td></tr>
+  </table>
+</div>
+
+<div class="section" style="margin-top:20px">
+  <h3>4. 毛玻璃具体实现</h3>
+  <div style="background:#0a0a0b;border-radius:12px;padding:16px;border:1px solid #1a1a1a;margin-top:10px">
+    <code style="color:#4fa3e0;font-size:11px">
+      backdrop-filter: blur(16px);<br>
+      background: rgba(255, 255, 255, 0.02);<br>
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    </code>
+    <p style="color:#666;font-size:10px;margin-top:6px">只用在导航条和Modal。卡片本身不用毛玻璃（避免性能问题），卡片用普通半透明背景。</p>
+  </div>
+</div>
+
+<div class="options" style="margin-top:24px">
+  <div class="option" data-choice="go" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content"><h3>没问题，写设计文档</h3></div>
+  </div>
+  <div class="option" data-choice="fix" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content"><h3>有要改的地方</h3></div>
+  </div>
+</div>
