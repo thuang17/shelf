@@ -1,0 +1,98 @@
+<h2>两个痛点：导航栏 + 卡片 hover 交互</h2>
+<p class="subtitle">左上：当前 / 右上：方案A / 左下：方案B / 右下：方案C。点击选择你喜欢的</p>
+
+<h3>1. 导航栏右上角（Share / + Add 按钮）</h3>
+
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:10px">
+  <!-- Current -->
+  <div style="background:#080808;border-radius:10px;overflow:hidden;border:1px solid #1a1a1a">
+    <div style="font-size:10px;color:#c44;padding:8px 10px;background:#111">现在</div>
+    <div style="padding:14px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,0.06);gap:8px">
+      <span style="font-family:'Playfair Display',serif;font-size:14px;color:#f8fafc;font-weight:700">shelf <span style="font-family:Inter,sans-serif;font-size:12px;color:rgba(255,255,255,0.2);font-weight:400">/ Trevor</span></span>
+      <div style="display:flex;gap:6px;align-items:center">
+        <span style="font-size:10px;color:rgba(255,255,255,0.45)">Share</span>
+        <span style="font-size:10px;background:#f8fafc;color:#080808;padding:4px 12px;border-radius:6px;font-weight:600;font-family:Inter,sans-serif">+ Add</span>
+      </div>
+    </div>
+  </div>
+  <!-- Option A -->
+  <div style="background:#080808;border-radius:10px;overflow:hidden;border:1px solid #1a1a1a">
+    <div style="font-size:10px;color:#4a9e6b;padding:8px 10px;background:#111">A — 图标替代文字</div>
+    <div style="padding:14px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,0.06);gap:8px">
+      <span style="font-family:'Playfair Display',serif;font-size:14px;color:#f8fafc;font-weight:700">shelf <span style="font-family:Inter,sans-serif;font-size:12px;color:rgba(255,255,255,0.2);font-weight:400">/ Trevor</span></span>
+      <div style="display:flex;gap:10px;align-items:center">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8M16 6l-4-4-4 4M12 2v13"/></svg>
+        <span style="font-size:10px;background:#f8fafc;color:#080808;padding:4px 12px;border-radius:6px;font-weight:600;font-family:Inter,sans-serif">+ Add</span>
+      </div>
+    </div>
+  </div>
+  <!-- Option B -->
+  <div style="background:#080808;border-radius:10px;overflow:hidden;border:1px solid #1a1a1a">
+    <div style="font-size:10px;color:#4a9e6b;padding:8px 10px;background:#111">B — 极简胶囊</div>
+    <div style="padding:14px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,0.06);gap:8px">
+      <span style="font-family:'Playfair Display',serif;font-size:14px;color:#f8fafc;font-weight:700">shelf <span style="font-family:Inter,sans-serif;font-size:12px;color:rgba(255,255,255,0.2);font-weight:400">/ Trevor</span></span>
+      <div style="display:flex;gap:8px;align-items:center">
+        <span style="font-size:10px;color:rgba(255,255,255,0.35);font-family:Inter;padding:4px 10px;border:1px solid rgba(255,255,255,0.08);border-radius:20px;cursor:pointer">Share</span>
+        <span style="font-size:10px;background:rgba(96,165,250,0.15);color:#93c5fd;padding:4px 12px;border-radius:20px;font-weight:600;font-family:Inter">+ Add</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3 style="margin-top:28px">2. 编辑模式 — 卡片 hover 交互</h3>
+
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:10px">
+  <!-- Current -->
+  <div style="background:#080808;border-radius:10px;overflow:hidden;border:1px solid #1a1a1a">
+    <div style="font-size:10px;color:#c44;padding:8px 10px;background:#111">现在 — 全暗覆盖层</div>
+    <div style="padding:20px;display:flex;justify-content:center">
+      <div style="width:120px;aspect-ratio:2/3;background:linear-gradient(155deg,#1a3a5c,#0f3460);border-radius:10px;position:relative;overflow:hidden">
+        <div style="position:absolute;inset:0;background:rgba(0,0,0,0.75);display:flex;flex-direction:column;justify-content:flex-end;padding:8px">
+          <select style="background:rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.85);font-size:9px;padding:3px;border-radius:4px;margin-bottom:4px;width:100%"><option>Reading</option></select>
+          <span style="background:rgba(180,40,40,0.6);color:#fff;font-size:9px;padding:3px;border-radius:3px;text-align:center;display:block">Delete</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Option A — refined overlay -->
+  <div style="background:#080808;border-radius:10px;overflow:hidden;border:1px solid #1a1a1a">
+    <div style="font-size:10px;color:#4a9e6b;padding:8px 10px;background:#111">A — 底部滑入控件</div>
+    <div style="padding:20px;display:flex;justify-content:center">
+      <div style="width:120px;aspect-ratio:2/3;background:linear-gradient(155deg,#1a3a5c,#0f3460);border-radius:10px;position:relative;overflow:hidden">
+        <div style="position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);padding:8px;border-top:1px solid rgba(255,255,255,0.08)">
+          <div style="display:flex;gap:4px">
+            <select style="flex:1;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:#fff;font-size:9px;padding:4px;border-radius:4px"><option>Reading</option></select>
+            <span style="background:none;border:1px solid rgba(255,100,100,0.3);color:#f87171;font-size:9px;padding:4px 6px;border-radius:4px;cursor:pointer">x</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Option B — corner menu -->
+  <div style="background:#080808;border-radius:10px;overflow:hidden;border:1px solid #1a1a1a">
+    <div style="font-size:10px;color:#4a9e6b;padding:8px 10px;background:#111">B — 右上角弹出菜单</div>
+    <div style="padding:20px;display:flex;justify-content:center">
+      <div style="width:120px;aspect-ratio:2/3;background:linear-gradient(155deg,#1a3a5c,#0f3460);border-radius:10px;position:relative;overflow:hidden">
+        <div style="position:absolute;top:8px;right:8px;display:flex;flex-direction:column;gap:3px">
+          <span style="background:rgba(0,0,0,0.7);backdrop-filter:blur(4px);color:#fff;font-size:8px;padding:4px 8px;border-radius:5px;border:1px solid rgba(255,255,255,0.08);cursor:pointer;text-align:center">Reading ▾</span>
+          <span style="background:rgba(0,0,0,0.5);backdrop-filter:blur(4px);color:#f87171;font-size:8px;padding:4px 8px;border-radius:5px;border:1px solid rgba(255,255,255,0.05);cursor:pointer;text-align:center">Remove</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="options" style="margin-top:24px">
+  <div class="option" data-choice="nav-a" onclick="toggleSelect(this)">
+    <div class="letter">A</div><div class="content"><h3>导航A + 卡片A</h3><p>图标替代文字 + 底部控件滑入</p></div>
+  </div>
+  <div class="option" data-choice="nav-b" onclick="toggleSelect(this)">
+    <div class="letter">B</div><div class="content"><h3>导航B + 卡片B</h3><p>极简胶囊 + 右上弹出菜单</p></div>
+  </div>
+  <div class="option" data-choice="mix-ab" onclick="toggleSelect(this)">
+    <div class="letter">C</div><div class="content"><h3>混合：导航A + 卡片A</h3><p>图标导航 + 底部控件</p></div>
+  </div>
+  <div class="option" data-choice="mix-ba" onclick="toggleSelect(this)">
+    <div class="letter">D</div><div class="content"><h3>混合：导航B + 卡片A</h3><p>胶囊导航 + 底部控件</p></div>
+  </div>
+</div>

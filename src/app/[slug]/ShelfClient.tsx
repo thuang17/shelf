@@ -73,12 +73,21 @@ export default function ShelfClient({ shelf, initialItems, isEditing, editToken 
           shelf
           <span style={{ fontFamily: 'var(--font-body)', color: 'var(--text-muted)', fontWeight: 400, fontSize: '13px', marginLeft: '6px' }}>/ {shelf.owner_name}</span>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
           {!isEditing && (
             <button
               onClick={() => navigator.clipboard.writeText(window.location.href)}
-              className="text-[11px] font-medium transition-colors duration-200"
-              style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-body)' }}
+              style={{
+                fontFamily: 'var(--font-body)',
+                fontSize: '11px',
+                color: 'rgba(255,255,255,0.35)',
+                padding: '5px 14px',
+                border: '1px solid rgba(255,255,255,0.08)',
+                borderRadius: '20px',
+                background: 'transparent',
+                cursor: 'pointer',
+                transition: 'all 0.2s',
+              }}
             >
               Share
             </button>
@@ -86,11 +95,17 @@ export default function ShelfClient({ shelf, initialItems, isEditing, editToken 
           {isEditing && (
             <button
               onClick={() => setShowModal(true)}
-              className="px-4 py-1.5 rounded-lg text-[12px] font-semibold transition-all duration-200"
               style={{
-                background: '#f8fafc',
-                color: '#080808',
                 fontFamily: 'var(--font-body)',
+                fontSize: '11px',
+                fontWeight: 600,
+                color: '#93c5fd',
+                background: 'rgba(96,165,250,0.12)',
+                padding: '5px 16px',
+                borderRadius: '20px',
+                border: 'none',
+                cursor: 'pointer',
+                transition: 'all 0.2s',
               }}
             >
               + Add

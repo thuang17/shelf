@@ -85,21 +85,35 @@ export default function MediaCard({ item, isEditing, onDelete, onStatusChange }:
           />
         )}
 
-        {/* Edit overlay — only visible on hover in edit mode */}
+        {/* Corner popup menu — only visible on hover in edit mode */}
         {isEditing && (
           <div
-            className="media-card-edit-overlay absolute inset-0 flex flex-col justify-end p-2.5"
-            style={{ background: 'rgba(0,0,0,0.75)' }}
+            className="media-card-edit-overlay"
+            style={{
+              position: 'absolute',
+              top: '8px',
+              right: '8px',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '4px',
+              zIndex: 10,
+            }}
           >
             <select
               value={item.status}
               onChange={(e) => onStatusChange?.(item.id, e.target.value as ItemStatus)}
               onClick={(e) => e.stopPropagation()}
-              className="w-full text-[10px] rounded px-1.5 py-1 mb-1.5 outline-none"
               style={{
-                background: 'rgba(0,0,0,0.6)',
-                border: '1px solid rgba(255,255,255,0.12)',
-                color: 'rgba(255,255,255,0.85)',
+                background: 'rgba(0,0,0,0.75)',
+                backdropFilter: 'blur(8px)',
+                border: '1px solid rgba(255,255,255,0.1)',
+                color: '#fff',
+                fontSize: '9px',
+                padding: '5px 8px',
+                borderRadius: '6px',
+                outline: 'none',
+                cursor: 'pointer',
+                fontFamily: 'var(--font-body)',
               }}
             >
               {item.type === 'book' ? (
@@ -118,13 +132,19 @@ export default function MediaCard({ item, isEditing, onDelete, onStatusChange }:
             </select>
             <button
               onClick={() => onDelete?.(item.id)}
-              className="w-full text-[10px] py-1 rounded text-center"
               style={{
-                background: 'rgba(180,40,40,0.6)',
-                color: 'rgba(255,255,255,0.9)',
+                background: 'rgba(0,0,0,0.6)',
+                backdropFilter: 'blur(8px)',
+                border: '1px solid rgba(255,100,100,0.2)',
+                color: '#f87171',
+                fontSize: '9px',
+                padding: '5px 8px',
+                borderRadius: '6px',
+                cursor: 'pointer',
+                fontFamily: 'var(--font-body)',
               }}
             >
-              Delete
+              Remove
             </button>
           </div>
         )}
